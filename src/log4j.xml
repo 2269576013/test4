@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<!--  -->
+<!-- debug="false" 是不打印log4j的控制信息 -->
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="false">
+
+<!--class="org.apache.log4j.FileAppender"以文件格式输出  -->
+	<appender name="fileAppender" class="org.apache.log4j.FileAppender">
+<!-- value="INFO" 输出>=INFO级别的log信息 -->	
+		<param name="Threshold" value="INFO" />
+		<param name="File" value="logfile.log"/>
+<!-- 是覆盖以前的log还是接着写， value="false"是覆盖-->
+		<param name="Append" value="false"/>	
+		<layout class="org.apache.log4j.PatternLayout">
+<!-- %-5p 优先级在5个字符内，-号表示左对齐 -->
+			<param name="ConversionPattern" value="%d %-5p %m %n" />
+		</layout>
+	</appender>
+
+	<root>
+		<level value="INFO"/>
+		<appender-ref ref="fileAppender"/>
+	</root>
+
+</log4j:configuration>
